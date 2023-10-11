@@ -197,6 +197,20 @@
             <id>release</id>
             <build>
                 <plugins>
+					<plugin>
+						<groupId>com.fortify.sca.plugins.maven</groupId>
+						<artifactId>sca-maven-plugin</artifactId>
+						<version>23.1.0</version>
+						<executions>
+						<execution>
+						<goals>
+						<goal>clean</goal>
+						<goal>translate</goal>
+						<goal>scan</goal>
+						</goals>
+						</execution>
+						</executions>
+					</plugin>
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -258,11 +272,14 @@
 
     <build>
         <plugins>
+		
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${maven-release-plugin.version}</version>
                 <configuration>
+					<source>1.8</source>
+					<target>1.8</target>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
