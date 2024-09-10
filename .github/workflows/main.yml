@@ -1,5 +1,6 @@
 name: Aqua
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
